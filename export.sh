@@ -3,6 +3,7 @@
 # Check if osmfilter is installed
 if ! [ -x "$(command -v osmfilter)" ]; then
     echo "Error: osmfilter is not installed." >&2
+    echo "Install: wget -O - http://m.m.i24.cc/osmfilter.c |cc -x c - -O3 -o osmfilter" >&2
     exit 1
 fi
 
