@@ -12,6 +12,12 @@ if ! [ -x "$(command -v wget)" ]; then
     exit 1
 fi
 
+# Check if curl is installed
+if ! [ -x "$(command -v curl)" ]; then
+    echo "Error: curl is not installed." >&2
+    exit 1
+fi
+
 # Check if jq is installed
 if ! [ -x "$(command -v jq)" ]; then
     echo "Error: jq is not installed." >&2
