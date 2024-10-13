@@ -38,7 +38,7 @@ cd data
 
 
 # Check if ./plastnice directory exists
-if [ -d "./plastnice" ]; then
+if [ -d "plastnice" ]; then
     echo "Plastnice data already exists. Skipping download."
 else
     # Download plastnice data
@@ -57,7 +57,8 @@ else
     # Extract plastnice data
     echo -n "Extracting plastnice data...  "
     unzip DTM_SLO_RELIEF.zip -d ./DTM_SLO_RELIEF
-    unzip DTM_SLO_RELIEF/DTM_SLO_RELIEF_EL_PLASTNICE\* -d ./plastnice
+    unzip "DTM_SLO_RELIEF/DTM_SLO_RELIEF_EL_PLASTNICE_ZAHOD_L_*" -d ./plastnice
+    unzip "DTM_SLO_RELIEF/DTM_SLO_RELIEF_EL_PLASTNICE_VZHOD_L_*" -d ./plastnice
 
     if [ $? -ne 0 ]; then
         echo "Failed"
@@ -69,8 +70,8 @@ fi
 
 
 
-# Check if ./slovenia-latest.osm exists
-if [ -f "./slovenia-latest.osm" ]; then
+# Check if slovenia-latest.osm exists
+if [ -f "slovenia-latest.osm" ]; then
     echo "OSM data already exists. Skipping download."
 else
     # Download OSM data
