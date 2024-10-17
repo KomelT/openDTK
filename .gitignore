@@ -1,2 +1,4 @@
 data
 *.qgs~
+symbology-style.db
+*tmp*
