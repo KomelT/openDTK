@@ -55,13 +55,6 @@ fi
 # Change to user's working directory
 cd $(pwd)
 
-# Check output directory
-ls $o &> /dev/null
-if [ $? -ne 0 ]; then
-    echo "Error: Output directory does not exist." >&2
-    exit 1
-fi
-
 # Check if osmfilter is installed
 if ! [ -x "$(command -v osmfilter)" ]; then
     echo "Error: osmfilter is not installed." >&2
