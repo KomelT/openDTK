@@ -137,11 +137,11 @@ else
     fi
     echo -e "Done\n"
 
-    # Extract plastnice data
-    echo -n "Extracting plastnice data...  "
+    # Extract contours data
+    echo -n "Extracting contours data...  "
     unzip ./DTM_SLO_RELIEF.zip -d ./DTM_SLO_RELIEF
-    unzip ./DTM_SLO_RELIEF/DTM_SLO_RELIEF_EL_PLASTNICE_VZHOD_L_* -d ./plastnice
-    unzip ./DTM_SLO_RELIEF/DTM_SLO_RELIEF_EL_PLASTNICE_ZAHOD_L_* -d ./plastnice
+    unzip ./DTM_SLO_RELIEF/DTM_SLO_RELIEF_EL_PLASTNICE_VZHOD_L_* -d ./contours
+    unzip ./DTM_SLO_RELIEF/DTM_SLO_RELIEF_EL_PLASTNICE_ZAHOD_L_* -d ./contours
 
     if [ $? -ne 0 ]; then
         echo "Failed"
