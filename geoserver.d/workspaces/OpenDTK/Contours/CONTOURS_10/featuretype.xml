@@ -1,0 +1,65 @@
+<featureType>
+  <id>FeatureTypeInfoImpl-5383b5af:192af94a3b9:-7ffd</id>
+  <name>CONTOURS_10</name>
+  <nativeName>contours_combined10</nativeName>
+  <namespace>
+    <id>NamespaceInfoImpl-5383b5af:192af94a3b9:-7fff</id>
+  </namespace>
+  <title>CONTOURS_10</title>
+  <keywords>
+    <string>features</string>
+    <string>contours_combined10</string>
+  </keywords>
+  <nativeCRS class="projected">PROJCS[&quot;Slovenia 1996 / Slovene National Grid&quot;, 
+  GEOGCS[&quot;Slovenia 1996&quot;, 
+    DATUM[&quot;Slovenia Geodetic Datum 1996&quot;, 
+      SPHEROID[&quot;GRS 1980&quot;, 6378137.0, 298.257222101, AUTHORITY[&quot;EPSG&quot;,&quot;7019&quot;]], 
+      TOWGS84[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], 
+      AUTHORITY[&quot;EPSG&quot;,&quot;6765&quot;]], 
+    PRIMEM[&quot;Greenwich&quot;, 0.0, AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]], 
+    UNIT[&quot;degree&quot;, 0.017453292519943295], 
+    AXIS[&quot;Geodetic longitude&quot;, EAST], 
+    AXIS[&quot;Geodetic latitude&quot;, NORTH], 
+    AUTHORITY[&quot;EPSG&quot;,&quot;4765&quot;]], 
+  PROJECTION[&quot;Transverse_Mercator&quot;, AUTHORITY[&quot;EPSG&quot;,&quot;9807&quot;]], 
+  PARAMETER[&quot;central_meridian&quot;, 15.0], 
+  PARAMETER[&quot;latitude_of_origin&quot;, 0.0], 
+  PARAMETER[&quot;scale_factor&quot;, 0.9999], 
+  PARAMETER[&quot;false_easting&quot;, 500000.0], 
+  PARAMETER[&quot;false_northing&quot;, -5000000.0], 
+  UNIT[&quot;m&quot;, 1.0], 
+  AXIS[&quot;Easting&quot;, EAST], 
+  AXIS[&quot;Northing&quot;, NORTH], 
+  AUTHORITY[&quot;EPSG&quot;,&quot;3794&quot;]]</nativeCRS>
+  <srs>EPSG:3794</srs>
+  <nativeBoundingBox>
+    <minx>374797.8432</minx>
+    <maxx>622534.5512</maxx>
+    <miny>31243.0383000001</miny>
+    <maxy>193775.195900001</maxy>
+    <crs class="projected">EPSG:3794</crs>
+  </nativeBoundingBox>
+  <latLonBoundingBox>
+    <minx>13.35756441806714</minx>
+    <maxx>16.607455452060616</maxx>
+    <miny>45.40992181509374</miny>
+    <maxy>46.883488692775764</maxy>
+    <crs>EPSG:4326</crs>
+  </latLonBoundingBox>
+  <projectionPolicy>FORCE_DECLARED</projectionPolicy>
+  <enabled>true</enabled>
+  <store class="dataStore">
+    <id>DataStoreInfoImpl-5383b5af:192af94a3b9:-7ffe</id>
+  </store>
+  <serviceConfiguration>false</serviceConfiguration>
+  <simpleConversionEnabled>false</simpleConversionEnabled>
+  <internationalTitle/>
+  <internationalAbstract/>
+  <maxFeatures>0</maxFeatures>
+  <numDecimals>0</numDecimals>
+  <padWithZeros>false</padWithZeros>
+  <forcedDecimal>false</forcedDecimal>
+  <overridingServiceSRS>false</overridingServiceSRS>
+  <skipNumberMatched>false</skipNumberMatched>
+  <circularArcPresent>false</circularArcPresent>
+</featureType>
