@@ -1,0 +1,21 @@
+services:
+  prepare:
+    container_name: prepare
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./data:/app/data/out
+
+  geoserver:
+    image: docker.osgeo.org/geoserver:2.25.3
+    container_name: geoserver
+    volumes:
+      - ./data/slovenia:/opt/geoserver_data/data/slovenia
+      - ./data/contours:/opt/geoserver_data/data/contours
+      - ./geoserver.d/workspaces/OpenDTK:/opt/geoserver_data/workspaces/OpenDTK
+    ports:
+      - 8080:8080
+    depends_on:
+      prepare:
+        condition: service_completed_successfully
