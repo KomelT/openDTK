@@ -20,8 +20,6 @@ parser.add_argument("-r", action="store_true", help="Removes output folder if ex
 
 args = parser.parse_args()
 
-os.system(f"cd $(pwd)")
-
 # Check if input folder exists
 if not os.path.exists(args.input):
     print(f"ERROR: Input folder '{args.input}' does not exist!")

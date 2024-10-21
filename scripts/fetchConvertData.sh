@@ -1,4 +1,4 @@
-cd $(pwd)
+#!/bin/bash
 
 rm -rf ./data
 
