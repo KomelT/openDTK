@@ -86,7 +86,7 @@ save_options.fileEncodings = "UTF-8"
 
 # Create new layer
 writer = QgsVectorFileWriter.create(
-    f"{output_folder}/contours_combined50.shp",
+    f"{output_folder}/contours50.shp",
     contours_east.fields(),
     QgsWkbTypes.MultiLineString,
     contours_east.crs(),
@@ -124,7 +124,7 @@ save_options.fileEncoding = "UTF-8"
 
 # Create new layer
 writer1 = QgsVectorFileWriter.create(
-    f"{output_folder}/contours_combined10.shp",
+    f"{output_folder}/contours10.shp",
     contours_east.fields(),
     QgsWkbTypes.MultiLineString,
     contours_east.crs(),

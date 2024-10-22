@@ -28,7 +28,9 @@ if [ $? -ne 0 ]; then
 fi
 
 # Convert OSM to OSM XML
+echo -n "Converting OSM to OSM XML... "
 osmconvert ./data/orig/slovenia-latest.osm.pbf --out-osm -o=./data/orig/slovenia-latest.osm
+echo -e "Done\n"
 
 # Check if conversion was successful
 if [ $? -ne 0 ]; then
@@ -39,7 +41,9 @@ fi
 rm -rf ./data/orig/slovenia-latest.osm.pbf
 
 # Filter OSM XML
+echo -n "Filtering OSM XML... "
 osmfilter ./data/orig/slovenia-latest.osm --drop-version --drop-relations --drop-author >> ./data/orig/custom-slovenia-latest.osm
+echo -e "Done\n"
 
 # Check if filtering was successful
 if [ $? -ne 0 ]; then

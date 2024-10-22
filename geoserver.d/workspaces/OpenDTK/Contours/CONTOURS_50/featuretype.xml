@@ -1,14 +1,14 @@
 <featureType>
   <id>FeatureTypeInfoImpl-5383b5af:192af94a3b9:-7ffb</id>
   <name>CONTOURS_50</name>
-  <nativeName>contours_combined50</nativeName>
+  <nativeName>contours50</nativeName>
   <namespace>
     <id>NamespaceInfoImpl-5383b5af:192af94a3b9:-7fff</id>
   </namespace>
   <title>CONTOURS_50</title>
   <keywords>
     <string>features</string>
-    <string>contours_combined50</string>
+    <string>contours50</string>
   </keywords>
   <nativeCRS class="projected">PROJCS[&quot;Slovenia 1996 / Slovene National Grid&quot;, 
   GEOGCS[&quot;Slovenia 1996&quot;, 
