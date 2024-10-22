@@ -6,6 +6,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./data:/app/data/out
+      - ./geoserver.d:/app/geoserver.d
 
   geoserver:
     image: docker.osgeo.org/geoserver:2.25.3

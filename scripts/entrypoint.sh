@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# Export styles
+python3 ./scripts/exportStyles.py -i ./dtk.qgs -o ./geoserver.d/workspaces/OpenDTK/styles/
+
+# Check if styles export was successful
+if [ $? -ne 0 ]; then
+  echo "Error while exporting styles"
+  exit 1
+fi
+
 # Exit if contours and slovenia exports already exist
 if [ -d "./data/out/contours" ] && [ -d "./data/out/slovenia" ]; then
   echo "Contours and Slovenia exports already exist"
