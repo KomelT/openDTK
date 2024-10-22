@@ -27,6 +27,28 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# Convert OSM to OSM XML
+osmconvert ./data/orig/slovenia-latest.osm.pbf --out-osm -o=./data/orig/slovenia-latest.osm
+
+# Check if conversion was successful
+if [ $? -ne 0 ]; then
+  echo "Error while converting OSM to OSM XML"
+  exit 1
+fi
+
+rm -rf ./data/orig/slovenia-latest.osm.pbf
+
+# Filter OSM XML
+osmfilter ./data/orig/slovenia-latest.osm --drop-version --drop-relations --drop-author >> ./data/orig/custom-slovenia-latest.osm
+
+# Check if filtering was successful
+if [ $? -ne 0 ]; then
+  echo "Error while filtering OSM XML"
+  exit 1
+fi
+
+rm -rf ./data/orig/slovenia-latest.osm
+
 # Export contours shapefiles
 python3 ./scripts/exportContours.py -r -i ./data/orig/contours/ -o ./data/out/contours
 
@@ -37,10 +59,12 @@ if [ $? -ne 0 ]; then
 fi
 
 # Export Slovenia shapefiles
-./scripts/exportShp.sh -r ./data/orig/slovenia-latest.osm.pbf ./data/out/slovenia/
+./scripts/exportShp.sh -r ./data/orig/custom-slovenia-latest.osm ./data/out/slovenia/
 
 # Check if export was successful
 if [ $? -ne 0 ]; then
   echo "Error while exporting Slovenia shapefiles"
   exit 1
 fi
+
+rm -rf ./data/orig/

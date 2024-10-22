@@ -106,13 +106,13 @@ if [ "$c" == true ]; then
     echo "Skipping contour lines..."
 else
     # Download contour data
-    echo "Downloading contour data...  "
+    echo -n "Downloading contour data...  "
 
     # Extract link to zip file
     url=$(curl -s "https://ipi.eprostor.gov.si/jgp-service-api/display-views/groups/85/composite-products/346/file?filterParam=DRZAVA&filterValue=1" | jq -r '.url')
 
     # Download zip file
-    wget $url -O ./DTM_SLO_RELIEF.zip
+    wget -q $url -O ./DTM_SLO_RELIEF.zip 2>/dev/null
 
     if [ $? -ne 0 ]; then
         echo "Failed"
@@ -144,8 +144,8 @@ if [ "$m" == true ]; then
     echo "Skipping OSM data..."
 else
     # Download OSM data
-    echo "Downloading OSM data...  "
-    wget https://download.geofabrik.de/europe/slovenia-latest.osm.pbf -O slovenia-latest.osm.pbf
+    echo -n "Downloading OSM data...  "
+    wget -q https://download.geofabrik.de/europe/slovenia-latest.osm.pbf -O slovenia-latest.osm.pbf
 
     if [ $? -ne 0 ]; then
         echo "Failed"
