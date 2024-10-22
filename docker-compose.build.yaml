@@ -1,0 +1,9 @@
+services:
+  prepare:
+    container_name: prepare
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./data:/app/data/out
+      - ./geoserver.d:/app/geoserver.d
