@@ -9,7 +9,7 @@ from qgis.core import (
     QgsWkbTypes,
 )
 
-
+# Parse arguments
 parser = argparse.ArgumentParser(
     prog="exportContours.py",
     description="This script merges and exports contours from input folder to output folder and separates them into 10 and 50 meters files",
@@ -37,6 +37,7 @@ if not os.path.exists(args.output):
 output_folder = abspath(args.output)
 input_folder = abspath(args.input)
 
+# Init QGIS
 QgsApplication.setPrefixPath("/usr/bin/qgis", True)
 qgs = QgsApplication([], False)
 qgs.initQgis()
