@@ -26,6 +26,4 @@ jobs:
           context: "{{defaultContext}}"
           file: dockerfile
           push: ${{ github.ref == 'refs/heads/main' }} # Only push if on main
-          tags: |
-            opendtk-prepare:latest
-            opendtk-prepare:${{ github.sha }}
+          tags: komelt/opendtk-prepare:latest
