@@ -26,8 +26,8 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
-          context: .
-          file: ./dockerfile
+          context: "{{defaultContext}}"
+          file: dockerfile
           push: ${{ github.ref == 'refs/heads/main' }} # Only push if on main
           tags: |
             KomelT/opendtk-prepare:latest
