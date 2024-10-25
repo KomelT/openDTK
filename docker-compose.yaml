@@ -5,18 +5,31 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ./data:/app/data/out
+      - ./data:/app/data
       - ./geoserver.d:/app/geoserver.d
+    depends_on:
+      postgis:
+        condition: service_started
 
   geoserver:
     image: docker.osgeo.org/geoserver:2.25.3
     container_name: geoserver
-    volumes:
-      - ./data/slovenia:/opt/geoserver_data/data/slovenia
-      - ./data/contours:/opt/geoserver_data/data/contours
-      - ./geoserver.d/workspaces/OpenDTK:/opt/geoserver_data/workspaces/OpenDTK
     ports:
       - 8080:8080
+    environment:
+      - SKIP_DEMO_DATA=true
+    volumes:
+      - ./geoserver.d/workspaces/OpenDTK:/opt/geoserver_data/workspaces/OpenDTK
     depends_on:
       prepare:
         condition: service_completed_successfully
+      postgis:
+        condition: service_healthy
+
+  postgis:
+    image: postgis/postgis:16-3.5-alpine
+    container_name: postgis
+    environment:
+      POSTGRES_DB: geoserver
+      POSTGRES_USER: geoserver
+      POSTGRES_PASSWORD: geoserver
