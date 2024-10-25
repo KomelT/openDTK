@@ -1,0 +1,17 @@
+<layer>
+  <name>CONTOURS_10</name>
+  <id>LayerInfoImpl-6f043566:192c2811398:-7fdf</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl-6f043566:192c2811398:-7fde</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-6f043566:192c2811398:-7fe0</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+  <dateCreated>2024-10-25 07:09:59.169 UTC</dateCreated>
+  <dateModified>2024-10-25 07:15:27.421 UTC</dateModified>
+</layer>

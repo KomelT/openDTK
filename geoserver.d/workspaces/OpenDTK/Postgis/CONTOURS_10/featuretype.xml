@@ -1,9 +1,9 @@
 <featureType>
-  <id>FeatureTypeInfoImpl-5383b5af:192af94a3b9:-7ffd</id>
+  <id>FeatureTypeInfoImpl-6f043566:192c2811398:-7fe0</id>
   <name>CONTOURS_10</name>
   <nativeName>contours10</nativeName>
   <namespace>
-    <id>NamespaceInfoImpl-5383b5af:192af94a3b9:-7fff</id>
+    <id>NamespaceInfoImpl-6f043566:192c2811398:-7fe3</id>
   </namespace>
   <title>CONTOURS_10</title>
   <keywords>
@@ -33,17 +33,17 @@
   AUTHORITY[&quot;EPSG&quot;,&quot;3794&quot;]]</nativeCRS>
   <srs>EPSG:3794</srs>
   <nativeBoundingBox>
-    <minx>374797.8432</minx>
-    <maxx>622534.5512</maxx>
-    <miny>31243.0383000001</miny>
-    <maxy>193775.195900001</maxy>
+    <minx>373910.46875</minx>
+    <maxx>623442.125</maxx>
+    <miny>30899.33984375</miny>
+    <maxy>194137.609375</maxy>
     <crs class="projected">EPSG:3794</crs>
   </nativeBoundingBox>
   <latLonBoundingBox>
-    <minx>13.35756441806714</minx>
-    <maxx>16.607455452060616</maxx>
-    <miny>45.40992181509374</miny>
-    <maxy>46.883488692775764</maxy>
+    <minx>13.34582838290015</minx>
+    <maxx>16.61945457146219</maxx>
+    <miny>45.40667094781887</miny>
+    <maxy>46.886749073365316</maxy>
     <crs>EPSG:4326</crs>
   </latLonBoundingBox>
   <projectionPolicy>FORCE_DECLARED</projectionPolicy>
@@ -52,7 +52,7 @@
     <entry key="cachingEnabled">false</entry>
   </metadata>
   <store class="dataStore">
-    <id>DataStoreInfoImpl-5383b5af:192af94a3b9:-7ffe</id>
+    <id>DataStoreInfoImpl-6f043566:192c2811398:-7fe2</id>
   </store>
   <serviceConfiguration>false</serviceConfiguration>
   <simpleConversionEnabled>false</simpleConversionEnabled>

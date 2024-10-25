@@ -1,0 +1,17 @@
+<layer>
+  <name>SLO_OSM_POLYGONS</name>
+  <id>LayerInfoImpl-6f043566:192c2811398:-7fd1</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl-6f043566:192c2811398:-7ffc</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-6f043566:192c2811398:-7fd2</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+  <dateCreated>2024-10-25 07:13:45.671 UTC</dateCreated>
+  <dateModified>2024-10-25 07:16:27.669 UTC</dateModified>
+</layer>

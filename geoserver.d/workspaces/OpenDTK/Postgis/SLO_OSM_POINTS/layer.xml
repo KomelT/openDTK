@@ -1,0 +1,17 @@
+<layer>
+  <name>SLO_OSM_POINTS</name>
+  <id>LayerInfoImpl-6f043566:192c2811398:-7fd3</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl-6f043566:192c2811398:-8000</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-6f043566:192c2811398:-7fd4</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+  <dateCreated>2024-10-25 07:13:30.964 UTC</dateCreated>
+  <dateModified>2024-10-25 07:16:09.993 UTC</dateModified>
+</layer>
