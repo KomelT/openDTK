@@ -4,6 +4,12 @@ from os.path import abspath
 from qgis.core import QgsApplication, QgsProject
 
 
+def check_dependencies():
+    QgsApplication.setPrefixPath("/usr/bin/qgis", True)
+    qgs = QgsApplication([], False)
+    qgs.initQgis()
+
+
 parser = argparse.ArgumentParser(
     prog="exportStyles.py",
     description="This script exports styles from QGIS project to SLD files",
@@ -11,8 +17,13 @@ parser = argparse.ArgumentParser(
 parser.add_argument("-o", "--output", help="Output folder", required=True)
 parser.add_argument("-i", "--input", help="Qgis project file", required=True)
 parser.add_argument("-r", action="store_true", help="Removes output folder if exists")
+parser.add_argument("-d", action="store_true", help="Check dependencies")
 
 args = parser.parse_args()
+
+if args.d:
+    check_dependencies()
+    exit(0)
 
 # Check if input folder exists
 if not os.path.exists(args.input):

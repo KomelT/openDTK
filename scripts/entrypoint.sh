@@ -1,5 +1,40 @@
 #!/bin/bash
 
+# Check dependencies
+python3 ./scripts/exportStyles.py -d
+./scripts/fetchRawLayers.sh -d
+python3 ./scripts/exportContours.py -d
+
+# Check if osmconvert is installed
+if ! command -v osmconvert &> /dev/null
+then
+    echo "osmconvert could not be found"
+    exit 1
+fi
+
+# Check if osmfilter is installed
+if ! command -v osmfilter &> /dev/null
+then
+    echo "osmfilter could not be found"
+    exit 1
+fi
+
+# Check if osm2pgsql is installed
+if ! command -v osm2pgsql &> /dev/null
+then
+    echo "osm2pgsql could not be found"
+    exit 1
+fi
+
+# Check if shp2pgsql is installed
+if ! command -v shp2pgsql &> /dev/null
+then
+    echo "shp2pgsql could not be found"
+    exit 1
+fi
+
+
+
 # Export styles
 python3 ./scripts/exportStyles.py -i ./dtk.qgs -o ./geoserver.d/workspaces/OpenDTK/styles/
 
@@ -9,17 +44,9 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-# Exit if contours and slovenia exports already exist
-if [ -d "./data/out/contours" ] && [ -d "./data/out/slovenia" ]; then
-  echo "Contours and Slovenia exports already exist"
-  exit 0
-fi
-
-# Remove data directory
-rm -rf ./data
 
 # Fetch data
-./scripts/fetchRawLayers.sh -r ./data/orig
+./scripts/fetchRawLayers.sh ./data/orig
 
 # Check if fetch was successful
 if [ $? -ne 0 ]; then
@@ -27,8 +54,9 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+
 # Convert OSM to OSM XML
-echo -n "Converting OSM to OSM XML... "
+echo "Converting OSM to OSM XML... "
 osmconvert ./data/orig/slovenia-latest.osm.pbf --out-osm -o=./data/orig/slovenia-latest.osm
 echo -e "Done\n"
 
@@ -38,11 +66,9 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-rm -rf ./data/orig/slovenia-latest.osm.pbf
-
 # Filter OSM XML
-echo -n "Filtering OSM XML... "
-osmfilter ./data/orig/slovenia-latest.osm --drop-version --drop-relations --drop-author >> ./data/orig/custom-slovenia-latest.osm
+echo "Filtering OSM XML... "
+osmfilter ./data/orig/slovenia-latest.osm --drop-version --drop-author --keep="landuse=forest" >> ./data/orig/custom-slovenia-latest.osm
 echo -e "Done\n"
 
 # Check if filtering was successful
@@ -50,8 +76,6 @@ if [ $? -ne 0 ]; then
   echo "Error while filtering OSM XML"
   exit 1
 fi
-
-rm -rf ./data/orig/slovenia-latest.osm
 
 # Export contours shapefiles
 python3 ./scripts/exportContours.py -r -i ./data/orig/contours/ -o ./data/out/contours
@@ -62,13 +86,9 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-# Export Slovenia shapefiles
-./scripts/exportShp.sh -r ./data/orig/custom-slovenia-latest.osm ./data/out/slovenia/
+# Upload OSM data to PostGIS
+osm2pgsql -S ./scripts/compatible.lua -O flex -d postgresql://geoserver:geoserver@postgis:5432/geoserver ./data/orig/custom-slovenia-latest.osm
 
-# Check if export was successful
-if [ $? -ne 0 ]; then
-  echo "Error while exporting Slovenia shapefiles"
-  exit 1
-fi
-
-rm -rf ./data/orig/
+# Upload Contours to PostGIS
+shp2pgsql -s 3794 ./data/out/contours/contours10.shp contours10 | psql -q -d postgresql://geoserver:geoserver@postgis:5432/geoserver
+shp2pgsql -s 3794 ./data/out/contours/contours50.shp contours50 | psql -q -d postgresql://geoserver:geoserver@postgis:5432/geoserver

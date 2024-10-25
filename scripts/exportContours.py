@@ -9,6 +9,13 @@ from qgis.core import (
     QgsWkbTypes,
 )
 
+
+def check_dependencies():
+    QgsApplication.setPrefixPath("/usr/bin/qgis", True)
+    qgs = QgsApplication([], False)
+    qgs.initQgis()
+
+
 # Parse arguments
 parser = argparse.ArgumentParser(
     prog="exportContours.py",
@@ -17,8 +24,13 @@ parser = argparse.ArgumentParser(
 parser.add_argument("-o", "--output", help="Output folder", required=True)
 parser.add_argument("-i", "--input", help="Input folder", required=True)
 parser.add_argument("-r", action="store_true", help="Removes output folder if exists")
+parser.add_argument("-d", action="store_true", help="Check dependencies")
 
 args = parser.parse_args()
+
+if args.d:
+    check_dependencies()
+    exit(0)
 
 # Check if input folder exists
 if not os.path.exists(args.input):
