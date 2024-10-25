@@ -26,7 +26,7 @@
     <entry key="create database">false</entry>
     <entry key="Method used to simplify geometries">FAST</entry>
     <entry key="port">5432</entry>
-    <entry key="passwd">crypt1:VKh9WuXClP3+p2DFZ0LdUG797WRwtNQ0</entry>
+    <entry key="passwd">plain:geoserver</entry>
     <entry key="min connections">1</entry>
     <entry key="dbtype">postgis</entry>
     <entry key="namespace">OpenDTK</entry>
