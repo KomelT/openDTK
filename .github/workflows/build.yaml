@@ -2,9 +2,6 @@ name: build
 
 on:
   push:
-    branches:
-      - main
-      - other-branches # Add any other branches you want to build without pushing to DockerHub
 
 jobs:
   build:
@@ -30,5 +27,5 @@ jobs:
           file: dockerfile
           push: ${{ github.ref == 'refs/heads/main' }} # Only push if on main
           tags: |
-            KomelT/opendtk-prepare:latest
-            KomelT/opendtk-prepare:${{ github.sha }}
+            opendtk-prepare:latest
+            opendtk-prepare:${{ github.sha }}
