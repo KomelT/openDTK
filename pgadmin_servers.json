@@ -1,0 +1,13 @@
+{
+	"Servers": {
+		"1": {
+			"Name": "Local Posgres dev server",
+			"Group": "Servers",
+			"Port": 5432,
+			"Username": "geoserver",
+			"Password": "geoserver",
+			"Host": "postgis",
+			"MaintenanceDB": "geoserver"
+		}
+	}
+}
