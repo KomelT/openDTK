@@ -15,3 +15,7 @@ docker compose up
 Wait for assets to be downloaded and exported...
 
 2. Open QGIS and update map
+
+## Styles
+
+**Followed style:** [topographic-signs-dtk25.pdf](https://raw.githubusercontent.com/KomelT/OpenDTK/refs/heads/main/assets/topographic-signs-dtk25.pdf)
